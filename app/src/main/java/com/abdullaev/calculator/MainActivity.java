@@ -3,9 +3,11 @@ package com.abdullaev.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     Button buttonEquals;
 
 
+    public enum Action {
+        PLUS, MINUS, MULTIPLY, DIVISION, EQUALS, RESET, NONE;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +137,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @SuppressLint("NonConstantResourceId")
+    Action getAction(View view) {
+        switch (view.getId()) {
+            case R.id.plus:
+            return Action.PLUS;
+            case R.id.minus:
+                return Action.MINUS;
+            case R.id.multiply:
+                return Action.MULTIPLY;
+            case R.id.division:
+                return Action.DIVISION;
+            case R.id.equals:
+                return Action.EQUALS;
+            case R.id.reset:
+                return Action.RESET;
+            default: return Action.NONE;
+        }
+    }
+//
+//    public void firstButtonPressed(View view) {
+//
+//        switch(view.getId()) {
+//            case R.id.zero:
+//            break;
+//        }
+//    }
+
+
 
     public void view() {
        textView = findViewById(R.id.text);
