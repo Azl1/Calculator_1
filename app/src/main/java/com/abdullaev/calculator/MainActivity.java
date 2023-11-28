@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonReset;
     Button buttonEquals;
 
+    String oneClick;
 
     public enum Action {
         PLUS, MINUS, MULTIPLY, DIVISION, EQUALS, RESET, NONE;
